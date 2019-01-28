@@ -23,7 +23,7 @@ Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
 }]);
 */
 Route::get('/contactame', ['as' => 'contactos','uses'=>'PagesController@contact']);
-
+/*
 Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') { // ? no-require
     //return view('saludo',['nombre'=>$nombre]);
     //return view('saludo')->with(['nombre'=>$nombre]);
@@ -38,5 +38,6 @@ Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') {
 
     return view('saludo',compact('nombre','html','script','consolas'));
 }])->where('nombre','[A-Za-z]+'); // validacion
-
+*/
 Route::get('/saludo/{nombre?}',['as'=>'saludo', 'uses'=>'PagesController@saludo'])->where('nombre','[A-Za-z]+'); // validacion
+Route::post('contacto',['as'=>'contacto','uses'=>'PagesController@mensaje']);
