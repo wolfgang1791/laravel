@@ -17,12 +17,21 @@ Route::get('/', ['as'=>'home',function () {
 }]);
 
 Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
-    return "Ginny I love you babe ";
-}])->where('nombre','[A-Za-z]+');
+    return view('contactos');
+}]);//->where('nombre','[A-Za-z]+');
 
 
 Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') { // ? no-require
     //return view('saludo',['nombre'=>$nombre]);
     //return view('saludo')->with(['nombre'=>$nombre]);
-    return view('saludo',compact('nombre'));
+    $html = "<h2>Contenido html</h2>";// ingresado por formulario
+    $script = "<script>alert('xss-cross site scripting')</script>"; // inyeccion de codigo
+
+    $consolas = [
+        'shit',
+        'fuck',
+        'fucking shit'
+    ];
+
+    return view('saludo',compact('nombre','html','script','consolas'));
 }])->where('nombre','[A-Za-z]+'); // validacion
