@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    echo "<a href=".route('contactos').">Contactos</a>"; //nombre de la ruta
-});
+Route::get('/', ['as'=>'home',function () {
+    return view('home');
+    //echo "<a href=".route('contactos').">Contactos</a>"; //nombre de la ruta
+}]);
 
 Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
     return "Ginny I love you babe ";
 }])->where('nombre','[A-Za-z]+');
 
 
-Route::get('/saludo/{nombre?}', function ($nombre = 'GINEVRA') { // ? no-require
-    return "Hello babe ".$nombre;
-})->where('nombre','[A-Za-z]+'); // validacion
+Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') { // ? no-require
+    //return view('saludo',['nombre'=>$nombre]);
+    //return view('saludo')->with(['nombre'=>$nombre]);
+    return view('saludo',compact('nombre'));
+}])->where('nombre','[A-Za-z]+'); // validacion
