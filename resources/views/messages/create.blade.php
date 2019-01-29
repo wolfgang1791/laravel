@@ -6,7 +6,7 @@
         <h3>{{session('info')}}</h3>
     @else
         <h2>Escribeme</h2>
-        <form class="" action="{{route('messages.store')}}" method="post">
+        <form class="" action="{{route('mensajes.store')}}" method="post">
             {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
             {!! csrf_field()!!}
             <label for="nombre">Nombre</label>
@@ -17,9 +17,9 @@
             <input type="text" name="email" value="{{old('email')}}">
             {!!$errors->first('email','<span class=error>:message</span>')!!}
             <br>
-            <label for="txa">Escribe tus weas</label>
+            <label for="mensaje">Escribe tus weas</label>
             <br>
-            <textarea name="txa" rows="4" cols="8" value="{{old('txa')}}"></textarea>
+            <textarea name="mensaje" rows="4" cols="8" value="{{old('mensaje')}}"></textarea>
             {!!$errors->first('txa','<span class=error>:message</span>')!!}
             <br>
             <input type="submit" name="env" value="enviar">

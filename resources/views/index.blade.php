@@ -14,12 +14,12 @@
         <tbody>
             @foreach ($messages as $message)
                 <tr>
-                    <td><a href="{{route('messages.show',$message->id)}}">{{$message->nombre}}</a></td>
+                    <td><a href="{{route('mensajes.show',$message->id)}}">{{$message->nombre}}</a></td>
                     <td>{{$message->email}}</td>
                     <td>{{$message->mensaje}}</td>
                     <td>
-                        <a href="{{route('messages.edit',$message->id)}}">Editar</a>
-                        <form style="display: inline" action="{{route('messages.destroy',$message->id)}}" method="post">
+                        <a href="{{route('mensajes.edit',$message->id)}}">Editar</a>
+                        <form style="display: inline" action="{{route('mensajes.destroy',$message->id)}}" method="post">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button type="submit" name="button">Eliminar</button>
