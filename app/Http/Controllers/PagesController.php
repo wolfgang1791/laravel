@@ -7,14 +7,18 @@ use App\Http\Requests\CreateMessageRequest;
 
 class PagesController extends Controller
 {
-    protected $request;
+    /*protected $request;
 
     public function __construct(Request $request){
         $this->request = $request;
-    }
+    }*/
 
     public function home()
     {
+        // return response("Don't do it",300)
+        //        ->header('xtoken','secret')
+        //        ->header('ginny','buenaza')
+        //        ->cookie('x-cookie','cookie');
         return view('home');
     }
 
@@ -25,16 +29,20 @@ class PagesController extends Controller
 
     public function saludo($nombre = 'GINEVRA')
     {
-        $html = "<h2>Contenido html</h2>";// ingresado por formulario
-        $script = "<script>alert('xss-cross site scripting')</script>"; // inyeccion de codigo
+        // $html = "<h2>Contenido html</h2>";// ingresado por formulario
+        // $script = "<script>alert('xss-cross site scripting')</script>"; // inyeccion de codigo
 
         $consolas = ['shit','fuck','fucking shit'];
 
-        return view('saludo',compact('nombre','html','script','consolas'));
+        return view('saludo',compact('nombre','consolas'));
     }
 
     public function mensaje(CreateMessageRequest $request) //Request $request
     {
-        return $request->all();
+         $data = $request->all();
+
+         return redirect()// back()
+                ->route('contactos') //->route('alias');
+                ->with('info','se envio pxto');
     }
 }

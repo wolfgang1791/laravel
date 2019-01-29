@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Mi sitio</title>
+        <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHBrZOUnj4fN97Pf1Sq01Fs2A_x_fGa_Z_tto7ucgfWvOz2bdgGg"/>
         <style media="screen">
             .active{
                 text-decoration: none;
