@@ -46,3 +46,7 @@ Route::post('contacto',['as'=>'contacto','uses'=>'PagesController@mensaje']);
 Route::get('mensajes',['as'=>'messages.index','uses'=>'MessaggesController@index']);
 Route::get('mensajes/create',['as'=>'messages.create','uses'=>'MessaggesController@create']);
 Route::post('mensajes',['as'=>'messages.store','uses'=>'MessaggesController@store']);
+Route::get('mensajes/{id}',['as'=>'messages.show','uses'=>'MessaggesController@show']);
+Route::get('mensajes/{id}/edit',['as'=>'messages.edit','uses'=>'MessaggesController@edit']);
+Route::put('mensajes/{id}',['as'=>'messages.update','uses'=>'MessaggesController@update']);
+Route::delete('mensajes/{id}',['as'=>'messages.destroy','uses'=>'MessaggesController@destroy']);
