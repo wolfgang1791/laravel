@@ -8,11 +8,16 @@
                 text-decoration: none;
                 color:green;
             }
+
+            .error{
+                    color:red;
+                    font-size: 12px;
+            }
         </style>
     </head>
     <body>
         <header>
-            <h1>{{request()->url()}}</h1>
+            {{-- <h1>{{request()->url()}}</h1> --}}
             @php
                 function activeMenu($url)
                 {
