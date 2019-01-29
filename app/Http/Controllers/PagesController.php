@@ -7,11 +7,11 @@ use App\Http\Requests\CreateMessageRequest;
 
 class PagesController extends Controller
 {
-    /*protected $request;
+    /*protected $request;*/
 
     public function __construct(Request $request){
-        $this->request = $request;
-    }*/
+        $this->middleware('example',['only'=>['home']]); // except || only
+    }
 
     public function home()
     {

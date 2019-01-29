@@ -7,6 +7,8 @@
     @else
         <h2>Escribeme</h2>
         <form class="" action="contacto" method="post">
+            {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
+            {!! csrf_field()!!}
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" value="{{old('nombre')}}">
             {!!$errors->first('nombre','<span class=error>:message</span>')!!}
