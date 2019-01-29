@@ -9,6 +9,10 @@ use App\Message;
 
 class MessaggesController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth',['except'=>['create','store']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +57,7 @@ class MessaggesController extends Controller
         // $message->mensaje = $request->input('txa');
         // $message->save();
         Message::create($request->all());
-        return redirect(route('mensajes.index'));
+        return redirect(route('mensajes.create'))->with('info','hemos recibido tu wea');
     }
 
     /**

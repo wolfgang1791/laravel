@@ -22,11 +22,6 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function contact()
-    {
-        return view('contactos');
-    }
-
     public function saludo($nombre = 'GINEVRA')
     {
         // $html = "<h2>Contenido html</h2>";// ingresado por formulario
@@ -36,7 +31,7 @@ class PagesController extends Controller
 
         return view('saludo',compact('nombre','consolas'));
     }
-
+/*
     public function mensaje(CreateMessageRequest $request) //Request $request
     {
          $data = $request->all();
@@ -45,4 +40,10 @@ class PagesController extends Controller
                 ->route('contactos') //->route('alias');
                 ->with('info','se envio pxto');
     }
+
+    public function contact()
+    {
+        return view('contactos');
+    }
+*/
 }

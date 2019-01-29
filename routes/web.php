@@ -16,13 +16,23 @@ Route::get('/', ['as'=>'home',function () {
     //echo "<a href=".route('contactos').">Contactos</a>"; //nombre de la ruta
 }]);
 */
+
+// Route::get('test',function(){
+//     $user = new App\User;
+//     $user->name = 'bcript encripted';
+//     $user->email = 'bcript@encripted.com';
+//     $user->password = bcrypt('fuckme');
+//     $user->save();
+//
+//     return $user;
+// });
 Route::get('/', ['as'=>'home','uses'=>'PagesController@home']);
 /*
 Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
     return view('contactos');
 }]);
 */
-Route::get('/contactame', ['as' => 'contactos','uses'=>'PagesController@contact']);
+//Route::get('/contactame', ['as' => 'contactos','uses'=>'PagesController@contact']);
 /*
 Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') { // ? no-require
     //return view('saludo',['nombre'=>$nombre]);
@@ -40,10 +50,13 @@ Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') {
 }])->where('nombre','[A-Za-z]+'); // validacion
 */
 Route::get('/saludo/{nombre?}',['as'=>'saludo', 'uses'=>'PagesController@saludo'])->where('nombre','[A-Za-z]+'); // validacion
-Route::post('contacto',['as'=>'contacto','uses'=>'PagesController@mensaje']);
+//Route::post('contacto',['as'=>'contacto','uses'=>'PagesController@mensaje']);
 
 
 Route::resource('mensajes','MessaggesController');
+Route::get('login',['as'=>'login','uses'=>'Auth\LoginController@showLoginForm']);
+Route::get('logout',['as'=>'logout','uses'=>'Auth\LoginController@logout']);
+Route::post('login','Auth\LoginController@login');
 
 // Route::get('mensajes',['as'=>'messages.index','uses'=>'MessaggesController@index']);
 // Route::get('mensajes/create',['as'=>'messages.create','uses'=>'MessaggesController@create']);

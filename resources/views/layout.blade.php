@@ -29,7 +29,12 @@
                 <a class="{{activeMenu('/')}}" href="{{ route('home')}}">Inicio</a>
                 <a class="{{activeMenu('saludo')}}" href="{{route('saludo','')}}">Saludo</a>
                 <a class="{{activeMenu('mensajes/create')}}" href="{{route('mensajes.create')}}">Contacto</a>
-                <a class="{{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
+                @if (auth()->guest())
+                    <a class="{{activeMenu('mensajes')}}" href="{{route('login')}}">Login</a>
+                @elseif(auth()->check())
+                    <a class="{{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
+                    <a href="{{route('logout')}}">Cerrar Sesion de {{auth()->user()->email}}</a>
+                @endif
             </nav>
         </header>
         @yield('content')
