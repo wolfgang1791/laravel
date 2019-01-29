@@ -9,8 +9,8 @@ class PagesController extends Controller
 {
     /*protected $request;*/
 
-    public function __construct(Request $request){
-        $this->middleware('example',['only'=>['home']]); // except || only
+    public function __construct(){
+        $this->middleware('example',['only'=>['']]); // except || only
     }
 
     public function home()

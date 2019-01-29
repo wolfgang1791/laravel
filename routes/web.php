@@ -16,7 +16,7 @@ Route::get('/', ['as'=>'home',function () {
     //echo "<a href=".route('contactos').">Contactos</a>"; //nombre de la ruta
 }]);
 */
-Route::get('/', ['as'=>'home','uses'=>'PagesController@home'])->middleware('example');
+Route::get('/', ['as'=>'home','uses'=>'PagesController@home']);
 /*
 Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
     return view('contactos');
