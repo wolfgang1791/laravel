@@ -41,3 +41,8 @@ Route::get('/saludo/{nombre?}',['as'=>'saludo', function ($nombre = 'GINEVRA') {
 */
 Route::get('/saludo/{nombre?}',['as'=>'saludo', 'uses'=>'PagesController@saludo'])->where('nombre','[A-Za-z]+'); // validacion
 Route::post('contacto',['as'=>'contacto','uses'=>'PagesController@mensaje']);
+
+
+Route::get('mensajes',['as'=>'messages.index','uses'=>'MessaggesController@index']);
+Route::get('mensajes/create',['as'=>'messages.create','uses'=>'MessaggesController@create']);
+Route::post('mensajes',['as'=>'messages.store','uses'=>'MessaggesController@store']);

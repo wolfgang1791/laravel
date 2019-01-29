@@ -28,7 +28,7 @@
             <nav>
                 <a class="{{activeMenu('/')}}" href="{{ route('home')}}">Inicio</a>
                 <a class="{{activeMenu('saludo')}}" href="{{route('saludo','')}}">Saludo</a>
-                <a class="{{activeMenu('contactame')}}" href="{{route('contactos')}}">Contacto</a>
+                <a class="{{activeMenu('contactame')}}" href="{{route('messages.create')}}">Contacto</a>
             </nav>
         </header>
         @yield('content')

@@ -6,7 +6,7 @@
         <h3>{{session('info')}}</h3>
     @else
         <h2>Escribeme</h2>
-        <form class="" action="contacto" method="post">
+        <form class="" action="{{route('messages.store')}}" method="post">
             {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
             {!! csrf_field()!!}
             <label for="nombre">Nombre</label>
