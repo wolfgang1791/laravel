@@ -7,18 +7,18 @@
         {!! method_field('PUT')!!}
         {!! csrf_field()!!}
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="{{$message->nombre}}">
+        <input class="form-control" type="text" name="nombre" value="{{$message->nombre}}">
         {!!$errors->first('nombre','<span class=error>:message</span>')!!}
         <br>
         <label for="email">Email</label>
-        <input type="text" name="email" value="{{$message->email}}">
+        <input class="form-control" type="text" name="email" value="{{$message->email}}">
         {!!$errors->first('email','<span class=error>:message</span>')!!}
         <br>
         <label for="txa">Escribe tus weas</label>
         <br>
-        <textarea name="mensaje" rows="10" cols="20">{{$message->mensaje}}</textarea>
+        <textarea class="form-control" name="mensaje" rows="10" cols="20">{{$message->mensaje}}</textarea>
         {!!$errors->first('mensaje','<span class=error>:message</span>')!!}
         <br>
-        <input type="submit" name="env" value="enviar">
+        <input class="btn btn-primary" type="submit" name="env" value="enviar">
     </form>
 @endsection

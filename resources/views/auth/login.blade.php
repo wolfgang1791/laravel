@@ -2,10 +2,10 @@
 
 @section('content')
     <h1>Login</h1>
-    <form action="login" method="post">
+    <form class="form-inline" action="login" method="post">
         {!! csrf_field() !!}
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit"  value="Ingresar">
+        <input class="form-control" type="email" name="email" placeholder="Email">
+        <input class="form-control"  type="password" name="password" placeholder="Password">
+        <input class="btn btn-primary"  type="submit"  value="Ingresar">
     </form>
 @endsection
