@@ -32,22 +32,20 @@
                   </li>
               @elseif(auth()->check())
                   <li class="nav-item">
-                     <a class="nav-link {{activeMenu('mensajes')}}" class="{{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
+                     <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('logout')}}">Cerrar Sesion de {{auth()->user()->email}}</a>
+                  @if(auth()->user()->hasRoles(['admin']))
+                      <li class="nav-item">
+                         <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('usuarios.index')}}">Usuarios</a>
+                      </li>
+                  @endif
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}}</a>
+                    <div class="dropdown-menu">
+                      <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('logout')}}">logout</a>
+                    </div>
                   </li>
               @endif
-              <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </li>
             </ul>
 
         </header>

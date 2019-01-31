@@ -19,8 +19,9 @@ Route::get('/', ['as'=>'home',function () {
 
 // Route::get('test',function(){
 //     $user = new App\User;
-//     $user->name = 'bcript encripted';
-//     $user->email = 'bcript@encripted.com';
+//     $user->name = 'Ginevra';
+//     $user->email = 'ginevra@weasley.com';
+//     $user->role = 'estudiante';
 //     $user->password = bcrypt('fuckme');
 //     $user->save();
 //
@@ -54,6 +55,7 @@ Route::get('/saludo/{nombre?}',['as'=>'saludo', 'uses'=>'PagesController@saludo'
 
 
 Route::resource('mensajes','MessaggesController');
+Route::resource('usuarios','UsersController');
 Route::get('login',['as'=>'login','uses'=>'Auth\LoginController@showLoginForm']);
 Route::get('logout',['as'=>'logout','uses'=>'Auth\LoginController@logout']);
 Route::post('login','Auth\LoginController@login');
