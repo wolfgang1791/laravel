@@ -10,8 +10,8 @@
             {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
             {!! csrf_field()!!}
             <label for="nombre">Nombre</label>
-            <input class="form-control" type="text" name="nombre" value="{{old('nombre')}}">
-            {!!$errors->first('nombre','<span class=error>:message</span>')!!}
+            <input class="form-control" type="text" name="name" value="{{old('name')}}">
+            {!!$errors->first('name','<span class=error>:message</span>')!!}
             <br>
             <label for="email">Email</label>
             <input class="form-control"  type="text" name="email" value="{{old('email')}}">
@@ -20,7 +20,7 @@
             <label for="mensaje">Escribe tus weas</label>
             <br>
             <textarea class="form-control" name="mensaje" rows="4" cols="8" value="{{old('mensaje')}}"></textarea>
-            {!!$errors->first('txa','<span class=error>:message</span>')!!}
+            {!!$errors->first('mensaje','<span class=error>:message</span>')!!}
             <br>
             <input class="btn btn-primary" type="submit" name="env" value="enviar">
         </form>

@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use App\Message;
+use App\Http\Requests\CreateMessageRequest;
 
 class MessaggesController extends Controller
 {
 
     public function __construct(){
         $this->middleware('auth',['except'=>['create','store']]);
+        $this->middleware('roles:admin');
     }
     /**
      * Display a listing of the resource.
@@ -93,7 +95,7 @@ class MessaggesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateMessageRequest $request, $id)
     {
         // DB::table('messages')->where('id',$id)->update([
         //     'nombre'=>$request->input('nombre'),
@@ -103,7 +105,7 @@ class MessaggesController extends Controller
         // ]);
 
         Message::findOrFail($id)->update($request->all());
-        return redirect()->route('mensajes.index');
+        return back()->with('info','wea actualizada');
     }
 
     /**

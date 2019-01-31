@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    // protected $table = 'nombre';
-    protected $fillable = ['nombre','email','mensaje'];//asignacion masiva de datos
+    // protected $table = 'nombre_de_table';
+    protected $fillable = ['name','email','mensaje'];//asignacion masiva de datos
 
 }

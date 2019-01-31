@@ -31,10 +31,10 @@
                     <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('login')}}">Login</a>
                   </li>
               @elseif(auth()->check())
-                  <li class="nav-item">
-                     <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
-                  </li>
                   @if(auth()->user()->hasRoles(['admin']))
+                      <li class="nav-item">
+                         <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
+                      </li>
                       <li class="nav-item">
                          <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('usuarios.index')}}">Usuarios</a>
                       </li>
@@ -42,7 +42,8 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}}</a>
                     <div class="dropdown-menu">
-                      <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('logout')}}">logout</a>
+                      <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('logout')}}">Cerrar sesion</a>
+                      <a class="nav-link {{activeMenu('mensajes')}}" href="/usuarios/{{ auth()->id()}}/edit">Mi cuenta</a>
                     </div>
                   </li>
               @endif

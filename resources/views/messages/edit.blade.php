@@ -2,13 +2,18 @@
 
 @section('content')
     <h1>Editar Mensaje</h1>
-    <form class="" action="{{route('mensajes.update',$message->id)}}" method="post">
+    @if (session()->has('info'))
+        <div class="alert alert-success">
+            {{session('info')}}
+        </div>
+    @endif
+    <form action="{{route('mensajes.update',$message->id)}}" method="post">
         {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
         {!! method_field('PUT')!!}
         {!! csrf_field()!!}
         <label for="nombre">Nombre</label>
-        <input class="form-control" type="text" name="nombre" value="{{$message->nombre}}">
-        {!!$errors->first('nombre','<span class=error>:message</span>')!!}
+        <input class="form-control" type="text" name="name" value="{{$message->name}}">
+        {!!$errors->first('name','<span class=error>:message</span>')!!}
         <br>
         <label for="email">Email</label>
         <input class="form-control" type="text" name="email" value="{{$message->email}}">

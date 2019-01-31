@@ -9,7 +9,7 @@
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Role</th>
-                {{-- <th>Acciones</th> --}}
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -24,15 +24,14 @@
                             {{$role->display_name}}
                         @endforeach
                     </td>
-                    {{-- <td>{{$message->email}}</td>
                     <td>
-                        <a class="btn btn-info btn-xs" href="{{route('mensajes.edit',$message->id)}}">Editar</a>
-                        <form style="display: inline" action="{{route('mensajes.destroy',$message->id)}}" method="post">
+                        <a class="btn btn-info btn-xs" href="{{route('usuarios.edit',$user->id)}}">Editar</a>
+                        <form style="display: inline" action="{{route('usuarios.destroy',$user->id)}}" method="post">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button class="btn btn-danger btn-xs"type="submit" name="button">Eliminar</button>
                         </form>
-                    </td> --}}
+                    </td>
                 </tr>
             @endforeach
         </tbody>

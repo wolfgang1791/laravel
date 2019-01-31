@@ -14,7 +14,7 @@
         <tbody>
             @foreach ($messages as $message)
                 <tr>
-                    <td><a href="{{route('mensajes.show',$message->id)}}">{{$message->nombre}}</a></td>
+                    <td><a href="{{route('mensajes.show',$message->id)}}">{{$message->name}}</a></td>
                     <td>{{$message->email}}</td>
                     <td>{{$message->mensaje}}</td>
                     <td>
