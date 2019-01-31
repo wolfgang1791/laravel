@@ -19,14 +19,17 @@ Route::get('/', ['as'=>'home',function () {
 
 // Route::get('test',function(){
 //     $user = new App\User;
-//     $user->name = 'Ginevra';
-//     $user->email = 'ginevra@weasley.com';
-//     $user->role = 'estudiante';
+//     $user->name = 'Haryy';
+//     $user->email = 'haryy@potter.com';
+//     $user->role_id = 1;
 //     $user->password = bcrypt('fuckme');
 //     $user->save();
 //
 //     return $user;
 // });
+Route::get('roles',function(){
+    return \App\Role::with('user')->get();//(paramtro = relacion)
+});
 Route::get('/', ['as'=>'home','uses'=>'PagesController@home']);
 /*
 Route::get('/contactame', ['as' => 'contactos',function () { //nombre de la ruta
