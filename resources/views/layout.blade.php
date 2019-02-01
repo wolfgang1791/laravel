@@ -43,7 +43,7 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}}</a>
                     <div class="dropdown-menu">
                       <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('logout')}}">Cerrar sesion</a>
-                      <a class="nav-link {{activeMenu('mensajes')}}" href="/usuarios/{{ auth()->id()}}/edit">Mi cuenta</a>
+                      <a class="nav-link {{activeMenu('mensajes')}}" href="/usuarios/{{auth()->id()}}/edit">Mi cuenta</a>
                     </div>
                   </li>
               @endif

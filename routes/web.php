@@ -17,16 +17,16 @@ Route::get('/', ['as'=>'home',function () {
 }]);
 */
 
-// Route::get('test',function(){
-//     $user = new App\User;
-//     $user->name = 'Haryy';
-//     $user->email = 'haryy@potter.com';
-//     $user->role_id = 1;
-//     $user->password = bcrypt('fuckme');
-//     $user->save();
-//
-//     return $user;
-// });
+Route::get('test',function(){
+    $user = new App\User;
+    $user->name = 'Haryy';
+    $user->email = 'haryy@potter.com';
+    //$user->role_id = 1;
+    $user->password = bcrypt('fuckme');
+    $user->save();
+
+    return $user;
+});
 Route::get('roles',function(){
     return \App\Role::with('user')->get();//(paramtro = relacion)
 });
