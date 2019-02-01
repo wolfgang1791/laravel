@@ -10,6 +10,7 @@
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Notas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                         @endforeach --}}
                         {{ $user->roles->pluck('display_name')->implode(" | ")}}
                     </td>
+                    <td>{{$user->note['body']}}</td>
                     <td>
                         <a class="btn btn-info btn-xs" href="{{route('usuarios.edit',$user->id)}}">Editar</a>
                         <form style="display: inline" action="{{route('usuarios.destroy',$user->id)}}" method="post">

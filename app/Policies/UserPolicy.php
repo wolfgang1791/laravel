@@ -30,16 +30,16 @@ class UserPolicy
 
     public function edit(User $authUser,User $user) // primero-> pasado por laravel el segundo es el que se tiene que autorizar
     {
-        return ($authUser === $user->id);
+        return ($authUser->id === $user->id);
     }
 
     public function update(User $authUser,User $user) // primero-> pasado por laravel el segundo es el que se tiene que autorizar
     {
-        return ($authUser === $user->id);
+        return ($authUser->id === $user->id);
     }
 
     public function destroy(User $authUser,User $user) // primero-> pasado por laravel el segundo es el que se tiene que autorizar
     {
-        return ($authUser === $user->id);
+        return ($authUser->id === $user->id);
     }
 }

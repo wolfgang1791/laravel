@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
+
+    public function note()
+    {
+        return $this->morphOne(Note::class,'notable');
+    }
 }
