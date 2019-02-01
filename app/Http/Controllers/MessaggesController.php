@@ -43,7 +43,7 @@ class MessaggesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMessageRequest $request)
     {
     /*    DB::table('messages')->insert([
             'nombre'=>$request->input('nombre'),

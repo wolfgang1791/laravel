@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\CreateUserRequest;
 use App\Policies\UserPolicy;
 
 
@@ -35,7 +37,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::pluck('display_name','id');
+        return view('users.create',compact('roles'));
     }
 
     /**
@@ -44,9 +47,14 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        //
+        $user = User::create($request->all());
+
+        $user->roles()->attach($request->roles);
+
+        return redirect()->route('usuarios.index');
+
     }
 
     /**
@@ -74,7 +82,9 @@ class UsersController extends Controller
 
         $this->authorize($user);
 
-        return view('users.edit',compact('user'));
+        $roles = Role::pluck('display_name','id');
+
+        return view('users.edit',compact('user','roles'));
     }
 
     /**
@@ -90,7 +100,8 @@ class UsersController extends Controller
 
         $this->authorize($user);
 
-        $user->update($request->all());
+        $user->update($request->only('name','email'));
+        $user->roles()->sync($request->roles);// duplicacion de datos sincronizacion de roles
 
         return back()->with('info','usuario actualizado');
     }
@@ -105,7 +116,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $this->authorize($user);
+        //$this->authorize($user);
 
         $user->delete();
 

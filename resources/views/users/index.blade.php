@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>Usuarios</h1>
+    <a href="{{route('usuarios.create')}}" class="btn btn-primary float-right">Crear nuevo usuario</a>
     <table class="table">
         <thead>
             <tr>
