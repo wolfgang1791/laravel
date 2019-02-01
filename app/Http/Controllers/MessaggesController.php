@@ -13,7 +13,7 @@ class MessaggesController extends Controller
 
     public function __construct(){
         $this->middleware('auth',['except'=>['create','store']]);
-        $this->middleware('roles:admin');
+        $this->middleware('roles:admin,mod');
     }
     /**
      * Display a listing of the resource.
@@ -58,7 +58,12 @@ class MessaggesController extends Controller
         // $message->email = $request->input('email');
         // $message->mensaje = $request->input('txa');
         // $message->save();
-        Message::create($request->all());
+        $message = Message::create($request->all());
+
+        if ( auth()->check() ) {
+            auth()->user()->messages()->save($message);
+        }
+
         return redirect(route('mensajes.create'))->with('info','hemos recibido tu wea');
     }
 
@@ -103,7 +108,6 @@ class MessaggesController extends Controller
         //     'mensaje'=>$request->input('txa'),
         //     'updated_at'=>Carbon::now(),
         // ]);
-
         Message::findOrFail($id)->update($request->all());
         return back()->with('info','wea actualizada');
     }

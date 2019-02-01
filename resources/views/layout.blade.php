@@ -31,10 +31,12 @@
                     <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('login')}}">Login</a>
                   </li>
               @elseif(auth()->check())
-                  @if(auth()->user()->hasRoles(['admin']))
+                  @if(auth()->user()->hasRoles(['admin','mod']))
                       <li class="nav-item">
                          <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('mensajes.index')}}">Mensajes</a>
                       </li>
+                  @endif
+                  @if(auth()->user()->hasRoles(['admin']))
                       <li class="nav-item">
                          <a class="nav-link {{activeMenu('mensajes')}}" href="{{route('usuarios.index')}}">Usuarios</a>
                       </li>
